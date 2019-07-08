@@ -13,6 +13,7 @@ export class DodajComponent implements OnInit {
     { name: 'Kamion' },
     { name: 'Autobus' },
     { name: 'Putnicki' }
+    
   ]
 
   public tipVozila = [
