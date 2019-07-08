@@ -1,0 +1,75 @@
+.mat-toolbar-row{
+    background-color: blue;
+    margin-bottom: 2%;
+}
+
+.mat-drawer{
+    width:50%;
+    border-right: 1px solid gray;
+}
+
+.example-container {
+    width: 80%;
+    height: 500px;
+    margin: 10px;
+    border: 1px solid #555;
+  }
+
+.left{
+    float: left;
+    width: 50%;
+    background-color: red;
+}
+
+.right{
+    float: right;
+    width:50%;
+    background-color: black;
+}
+
+/* .container {
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    padding: 10px;
+}
+.one {
+    width: 50%;
+    height: auto;
+    
+    float: left;
+}
+.two {
+    padding: 2px;
+    margin-left: 50%;
+    height: 200px;
+
+}
+
+.header{
+    padding: 40px;
+    text-align: center;
+}
+
+.dodaj{
+    display: inline;
+    float:right;
+} */
+
+/* mat-form-field{
+    margin-right: 3%;
+} */
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+

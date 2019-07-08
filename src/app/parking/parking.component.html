@@ -1,0 +1,61 @@
+
+<h5>Parking</h5>
+<div fxLayout="row" class="content" fxLayoutAlign="start">
+    <mat-form-field fxFlex="10" style="width: 45%; display: inline-block; margin-right: 40px;">
+        <h4>Select parking</h4>
+        <div>
+            <mat-select [(ngModel)]="type" (ngModelChange)='getParking($event)'>
+                <mat-option   *ngFor="let type of parking" [value]="type.id">
+                    Povrsina: {{ type.id }}
+                </mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+</div>
+
+
+
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="content">
+        <div fxFlex="90" fxLayoutGap="10px">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+
+            <div>
+                <table mat-table [dataSource]="dataSource" matSort>
+
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.naziv}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="vrstaVozila">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vrsta Vozila </th>
+                        <td mat-cell *matCellDef="let row"> {{row.vrstaVozila}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="tipVozila">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tip Vozila </th>
+                        <td mat-cell *matCellDef="let row"> {{row.tipVozila}} </td>
+                    </ng-container>
+
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[1,5, 10, 25, 100]"></mat-paginator>
+            </div>
+        </div>
+
+    </div>
+</div>

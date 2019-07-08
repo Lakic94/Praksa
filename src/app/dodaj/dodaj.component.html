@@ -1,0 +1,46 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="center start" class="content">
+        <div fxFlex="80" fxLayoutGap="20px">
+            <div>
+                <mat-form-field >
+                    <h4>Izaberi Vrstu Vozila</h4>
+                    <mat-select [(ngModel)]="i" (ngModelChange)='getVrstaVozila($event)'>
+                        <mat-option *ngFor="let i of vrstaVozila" [value]='i.name'>
+                            {{ i.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlexOffset="15">
+                    <h4>Izaberi Tip Vozila</h4>
+                    <mat-select [(ngModel)]="izabrano" (ngModelChange)='print($event)'>
+                        <mat-option *ngFor="let i of listaTipova" [value]='i.name'>
+                            {{i.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div [ngSwitch]="unos">
+    <app-dodaj-cisterna *ngSwitchCase="'Cisterna'"></app-dodaj-cisterna>
+    
+    <app-dodaj-gradski *ngSwitchCase="'Gradski'"></app-dodaj-gradski>
+
+    <app-dodaj-kabriolet *ngSwitchCase="'Kabriolet'"></app-dodaj-kabriolet>
+
+    <app-dodaj-klasican-automobil *ngSwitchCase="'KlasicanAutomobil'"></app-dodaj-klasican-automobil>
+
+    <app-dodaj-sleper *ngSwitchCase="'Sleper'"></app-dodaj-sleper>
+
+    <app-dodaj-prigradski *ngSwitchCase="'Prigradski'"></app-dodaj-prigradski>
+
+
+</div>

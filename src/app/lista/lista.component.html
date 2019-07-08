@@ -1,0 +1,85 @@
+<button mat-flat-button (click)="toggle()">Prikazi</button>
+
+<button mat-flat-button (click)="openDialog()">Dodaj</button>
+
+<div *ngIf="prikazi">
+        <h5>Lista Vozila</h5>
+
+    <div class="container">
+        <div fxLayout="row" fxLayoutAlign="center start" class="content">
+            <div fxFlex="80" fxLayoutGap="20px">
+                <div>
+                    <mat-form-field>
+                        <h4>Izaberi Vrstu Vozila</h4>
+                        <mat-select [(ngModel)]="i" (ngModelChange)='getVrstaVozila($event)'>
+                            <mat-option *ngFor="let i of vrstaVozila" [value]='i.name'>
+                                {{ i.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlexOffset="15">
+                        <h4>Izaberi Tip Vozila</h4>
+                        <mat-select [(ngModel)]="i" (ngModelChange)='getTipVozila($event)'>
+                            <mat-option *ngFor="let i of listaTipova" [value]='i.name'>
+                                {{i.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div fxLayout="row" fxLayoutAlign="space-around center" class="content">
+            <div fxFlex="90" fxLayoutGap="10px">
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+
+                <div>
+                    <table mat-table [dataSource]="dataSource" matSort>
+
+
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let row"> {{row.naziv}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="vrstaVozila">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Vrsta Vozila </th>
+                            <td mat-cell *matCellDef="let row"> {{row.vrstaVozila}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="tipVozila">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tip Vozila </th>
+                            <td mat-cell *matCellDef="let row"> {{row.tipVozila}} </td>
+                        </ng-container>
+
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[1,5, 10, 25, 100]"></mat-paginator>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-parking *ngIf="!prikazi"></app-parking>
