@@ -1,5 +1,10 @@
 .example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
-    flex: 0.1 1 auto;
-  }
+   /* This fills the remaining space, by using flexbox. 
+      Every toolbar row uses a flexbox row layout. */
+   flex: 0.1 1 auto;
+ }
+
+ .dugme{
+    margin-left: 5%;
+    min-width: unset;
+ }

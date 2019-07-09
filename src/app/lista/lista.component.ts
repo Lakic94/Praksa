@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { ListaService } from './lista.service';
 import { Vozilo } from '../model/vozilo.model';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material';
+import { SharedService } from '../model/shared.service';
 
 
 
@@ -20,7 +21,7 @@ import { MatDialog } from '@angular/material';
 })
 export class ListaComponent implements OnInit {
 
-  constructor(private listaService: ListaService, public dialog: MatDialog) { }
+  constructor(private listaService: ListaService, public dialog: MatDialog,private sharedService:SharedService) { }
 
 
   public vrstaVozila = [
@@ -39,11 +40,11 @@ export class ListaComponent implements OnInit {
     { vrstaVozila: 'Putnicki', name: 'Kabriolet' }
   ]
 
-  prikazi:boolean = false;
+  
 
   prikazuList = "Prikazi Listu";
 
-
+  message:boolean;
 
   listaTipova = [];
 
@@ -66,6 +67,7 @@ export class ListaComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource = new MatTableDataSource(this.vozila);
+    this.sharedService.currentMessage.subscribe(message=>this.message = message)
   }
 
   //Ne dirati
@@ -93,26 +95,18 @@ export class ListaComponent implements OnInit {
     this.listaService.getTipVozila(a).subscribe(data => this.dataSource = new MatTableDataSource(data));
   }
 
-  toggle(event){
-    if(this.prikazi === false){
-      this.prikazi = true;
+  toogle(){
+    if(this.message===true){
+      this.message = false;
     }
     else{
-      this.prikazi = false;
+      this.message = true;
     }
   }
 
-  openDialog(): void {
-    this.dialog.open(DialogComponent, {
-      width: '80%',
-      height: '80%',
-      data: {
-        // data:this.data
-      }
-    }).afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
-    });
-  }
+  
+
+  
+  
 
 }

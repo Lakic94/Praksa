@@ -1,12 +1,11 @@
-
-<h5>Parking</h5>
-<div fxLayout="row" class="content" fxLayoutAlign="start">
+<div fxLayout="row" class="content" fxLayoutAlign="space-evenly start">
     <mat-form-field fxFlex="10" style="width: 45%; display: inline-block; margin-right: 40px;">
-        <h4>Select parking</h4>
         <div>
+            <h4>Parking</h4>
+            
             <mat-select [(ngModel)]="type" (ngModelChange)='getParking($event)'>
-                <mat-option   *ngFor="let type of parking" [value]="type.id">
-                    Povrsina: {{ type.id }}
+                <mat-option *ngFor="let type of parking" [value]="type.id">
+                   Povrsina {{ type.povrsina }}
                 </mat-option>
             </mat-select>
         </div>

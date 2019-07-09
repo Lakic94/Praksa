@@ -1,13 +1,14 @@
-<button mat-flat-button (click)="toggle()">Prikazi</button>
 
-<button mat-flat-button (click)="openDialog()">Dodaj</button>
 
-<div *ngIf="prikazi">
-        <h5>Lista Vozila</h5>
+
+<div *ngIf="message">
 
     <div class="container">
+
         <div fxLayout="row" fxLayoutAlign="center start" class="content">
             <div fxFlex="80" fxLayoutGap="20px">
+                    <h3>Lista Vozila</h3>
+
                 <div>
                     <mat-form-field>
                         <h4>Izaberi Vrstu Vozila</h4>
@@ -82,4 +83,4 @@
     </div>
 </div>
 
-<app-parking *ngIf="!prikazi"></app-parking>
+<app-parking *ngIf="!message"></app-parking>
