@@ -11,6 +11,6 @@ export class DodajService {
   constructor(private http:HttpClient) { }
 
   postCisterna(data:Cisterna): Observable<Cisterna>{
-    return this.http.post<Cisterna>('api/cisterna',data);
+    return this.http.post<Cisterna>('http://localhost:8585/api/cisterna',data);
   }
 }

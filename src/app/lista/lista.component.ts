@@ -48,35 +48,11 @@ export class ListaComponent implements OnInit {
 
   listaTipova = [];
 
-  probnaLista=[
-    {
-      id:1,
-      name:'man',
-      vrstaVozila:'kamion',
-      tipVozila:'cisterna',
-
-    },
-    {
-      id:2,
-      name:'iveco',
-      vrstaVozila:'kamion',
-      tipVozila:'cisterna',
-      
-    },
-    {
-      id:3,
-      name:'reno',
-      vrstaVozila:'kamion',
-      tipVozila:'cisterna',
-      
-    }
-
-  ]
 
   public vozila = [];
 
   displayedColumns: string[] = ['id', 'name', 'vrstaVozila', 'tipVozila','delete','update'];
-  dataSource = new MatTableDataSource<any>(this.probnaLista);
+  dataSource = new MatTableDataSource<Vozilo>(this.vozila);
 
   //Ne dirati
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -86,12 +62,15 @@ export class ListaComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.listaService.getVozila()
-    //   .subscribe(data => this.dataSource = new MatTableDataSource(data));
+
+    this.listaService.getVozila()
+      .subscribe(data => {this.dataSource = new MatTableDataSource(data), console.log(data)});
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    // this.dataSource = new MatTableDataSource(this.vozila);
+    this.dataSource = new MatTableDataSource(this.vozila);
     this.sharedService.currentMessage.subscribe(message=>this.message = message)
+    
+    
   }
 
   //Ne dirati
@@ -128,12 +107,31 @@ export class ListaComponent implements OnInit {
     }
   }
 
-  
-  delete(event){
-    console.log(event)
-    this.probnaLista.splice(event)
-    console.log(this.probnaLista)
+  delete(id:number,tip:string){
+    this.listaService.deleteVozilo(id,tip).subscribe();
+    setTimeout(() => {
+      this.loadData();
+    }, 200);
+    
   }
+
+  loadData(){
+    this.listaService.getVozila()
+      .subscribe(data => this.dataSource = new MatTableDataSource(data));
+      
+  }
+
+  openDialog(): void {
+    this.dialog.open(DialogComponent, {
+      width: '50%',
+      height: '90%',
+      data: {
+        // data:this.data
+      }
+    })
+  }
+  
+
   
   
 

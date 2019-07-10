@@ -8,6 +8,7 @@ import { DodajComponent } from '../dodaj/dodaj.component';
 const routes = [
 
   
+  {path: 'api/cisterna/id', component: ListaComponent},
   { path: '**', component: DodajComponent }
 ]
 

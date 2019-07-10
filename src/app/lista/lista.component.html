@@ -69,18 +69,16 @@
                         </ng-container>
 
                         <ng-container matColumnDef="delete">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> DELETE </th>
-                            <td mat-cell *matCellDef="let row"> </td>
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+                                <td mat-cell *matCellDef="let row"><button mat-button (click)="delete(row.id,row.tipVozila)">Delete</button></td>
                         </ng-container>
 
                         <ng-container matColumnDef="update">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> UPDATE </th>
-                            <td mat-cell *matCellDef="let row"><button mat-button (click)="delete(row.id)">Delete</button></td>
+                            <th mat-header-cell *matHeaderCellDef> Update </th>
+                            <td mat-cell *matCellDef="let row" ><button class="dugme" mat-flat-button (click)="openDialog()" routerLink="api/cisterna/id">Update</button>
+                            </td>
                         </ng-container>
-
-
-
-                       
+                        
 
 
 

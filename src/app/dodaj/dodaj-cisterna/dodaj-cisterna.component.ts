@@ -26,10 +26,11 @@ export class DodajCisternaComponent implements OnInit {
     this.cisterna = new Cisterna(
       '','',null,null
     )
-    alert("Dodato!")
+    
       
     
   }
+  
   
 
 
