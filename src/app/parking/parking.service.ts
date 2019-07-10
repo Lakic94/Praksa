@@ -11,18 +11,18 @@ export class ParkingService {
 
   constructor(private http:HttpClient) { }
 
-  private readonly path = 'api/parking/'
+  private readonly path = 'http://localhost:8585/api/parking/'
 
   getParkingVozila(): Observable<Vozilo []>{
-    return this.http.get<Vozilo []>('http://localhost:8585/api/parking/getAllVozila');
+    return this.http.get<Vozilo []>('getAllVozila');
   }
 
   getParkinge(): Observable<Parking []>{
-    return this.http.get<Parking []>('http://localhost:8585/api/parking/getAll');
+    return this.http.get<Parking []>('getAll');
   }
 
   getVozilaSaParkinga(id:number):Observable<Vozilo[]>{
-    return this.http.get<Vozilo []>(`http://localhost:8585/api/parking/${id}`);
+    return this.http.get<Vozilo []>(this.path+`${id}`);
   }
 
 }
