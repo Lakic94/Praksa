@@ -30,9 +30,15 @@
         [(ngModel)]="cisterna.brojOsovina" name="brojOsovina">
     </mat-form-field>
   </div>
-  <div fxLayout="row" fxLayoutAlign="end end">
+  <div *ngIf="cisterna==null" fxLayout="row" fxLayoutAlign="end end">
   <button mat-button (click)="dodaj()">Nova Cisterna</button>
 </div>
+
+<div *ngIf="cisterna!=null" fxLayout="row" fxLayoutAlign="end end">
+  <button mat-button (click)="izmeni()">Izmeni Cisterna</button>
+</div>
+
+
 
   
 
