@@ -20,12 +20,16 @@ export class DodajCisternaComponent implements OnInit {
   constructor(private dodajService:DodajService, private sharedService:SharedService) { }
 
   ngOnInit() {
-    this.sharedService.currentId.subscribe(id=>this.id = id);
+    this.sharedService.currentId.subscribe(data=>{if(data.tipVozila==='cisterna'){
+      this.id =data.id;
+      this.dodajService.getCisterna(this.id).subscribe(data => this.cisterna = data);
+    }});
 
-    this.dodajService.getCisterna(this.id).subscribe(data => console.log(data));
+    
     //console.log(this.cisterna)
     
   }
+  
 
   dodaj(){
     this.dodajService.postCisterna(this.cisterna)
@@ -37,10 +41,7 @@ export class DodajCisternaComponent implements OnInit {
 
   }
 
-  prikazi(){
-    
-    
-  }
+  
 
 
   

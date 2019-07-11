@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SharedService {
 
+  
+
   constructor(private http: HttpClient) { }
 
   private messageSource = new BehaviorSubject<boolean>(true);
 
-  private messageid = new BehaviorSubject<any>(0);
+  private messageid = new BehaviorSubject<Vrsta>(null);
 
   currentMessage = this.messageSource.asObservable();
 
@@ -21,9 +23,14 @@ export class SharedService {
     this.messageSource.next(message)
   }
 
-  changeId(id:number){
-    this.messageid.next(id);
+  changeId(id:number,tipVozila:string){
+    this.messageid.next({id:id, tipVozila:tipVozila});
   }
 
   
+}
+
+export interface Vrsta{
+    id:number,
+    tipVozila:string
 }

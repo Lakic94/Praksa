@@ -73,6 +73,7 @@ import { DodajKabrioletComponent } from './dodaj/dodaj-kabriolet/dodaj-kabriolet
     MatDialogModule,
     RouterModule.forRoot([])
   ],
+  exports:[MatSortModule, MatPaginatorModule],
   providers: [ListaService],
   bootstrap: [AppComponent],
   entryComponents: [

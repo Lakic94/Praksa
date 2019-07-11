@@ -1,1 +1,52 @@
-<p>dodaj-gradski works!</p>
+
+<form>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"     
+        [(ngModel)]="gradski.naziv"
+          name="naziv">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Boja" type="text" class="form-control" id="boja"
+         [(ngModel)]="gradski.boja"
+          name="boja">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Broj Za Sedenje" class="form-control" id="brojZaSedenje"
+         [(ngModel)]="gradski.brojZaSedenje"
+          name="brojZaSedenje">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Broj Za Stajanje" class="form-control" id="brojZaStajanje"
+           [(ngModel)]="gradski.brojZaStajanje"
+            name="brojZaStajanje">
+        </mat-form-field>
+      </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Zglobni " type="text" class="form-control" id="zglobni"
+          [(ngModel)]="gradski.zglobni" name="zglobni">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end">
+    <button mat-button (click)="dodaj()">Novi Gradski</button>
+  </div>
+  
+    
+  
+  </form>
+  
+  
+  <div>
+    <button mat-button click="prikazi()">Prikazi</button>
+  </div>
