@@ -20,7 +20,10 @@ export class DodajCisternaComponent implements OnInit {
   constructor(private dodajService:DodajService, private sharedService:SharedService) { }
 
   ngOnInit() {
-    this.sharedService.currentId.subscribe(data=>{if(data.tipVozila==='cisterna'){
+    this.cisterna = new Cisterna(
+      '','',null,null
+    )
+    this.sharedService.currentId.subscribe(data=>{if(data.tipVozila==='Cisterna'){
       this.id =data.id;
       this.dodajService.getCisterna(this.id).subscribe(data => this.cisterna = data);
     }});
