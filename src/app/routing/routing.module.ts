@@ -4,11 +4,12 @@ import { ParkingComponent } from '../parking/parking.component';
 import { ListaComponent } from '../lista/lista.component';
 import { RouterModule } from '@angular/router';
 import { DodajComponent } from '../dodaj/dodaj.component';
+import { DodajCisternaComponent } from '../dodaj/dodaj-cisterna/dodaj-cisterna.component';
 
 const routes = [
 
   
-  {path: 'api/cisterna/id', component: ListaComponent},
+  {path: 'api/Cisterna/id', component: DodajCisternaComponent},
   { path: '**', component: DodajComponent }
 ]
 

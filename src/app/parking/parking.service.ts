@@ -14,11 +14,11 @@ export class ParkingService {
   private readonly path = 'http://localhost:8585/api/parking/'
 
   getParkingVozila(): Observable<Vozilo []>{
-    return this.http.get<Vozilo []>('getAllVozila');
+    return this.http.get<Vozilo []>(this.path+`getAllVozila`);
   }
 
   getParkinge(): Observable<Parking []>{
-    return this.http.get<Parking []>('getAll');
+    return this.http.get<Parking []>(this.path+'getAll');
   }
 
   getVozilaSaParkinga(id:number):Observable<Vozilo[]>{

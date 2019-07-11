@@ -48,6 +48,8 @@ export class ListaComponent implements OnInit {
 
   listaTipova = [];
 
+  id:number;
+
 
   public vozila = [];
 
@@ -98,14 +100,6 @@ export class ListaComponent implements OnInit {
     this.listaService.getTipVozila(a).subscribe(data => this.dataSource = new MatTableDataSource(data));
   }
 
-  toogle(){
-    if(this.message===true){
-      this.message = false;
-    }
-    else{
-      this.message = true;
-    }
-  }
 
   delete(id:number,tip:string){
     this.listaService.deleteVozilo(id,tip).subscribe();
@@ -132,7 +126,12 @@ export class ListaComponent implements OnInit {
   }
   
 
-  
+  prosledi(id:any){
+
+    this.sharedService.changeId(id);
+    console.log(id);
+
+  }
   
 
 }

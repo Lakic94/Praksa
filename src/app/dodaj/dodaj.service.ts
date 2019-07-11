@@ -13,4 +13,8 @@ export class DodajService {
   postCisterna(data:Cisterna): Observable<Cisterna>{
     return this.http.post<Cisterna>('http://localhost:8585/api/cisterna',data);
   }
+
+  getCisterna(id:number):Observable<Cisterna>{
+    return this.http.get<Cisterna>(`http://localhost:8585/api/cisterna/${id}`);
+  }
 }

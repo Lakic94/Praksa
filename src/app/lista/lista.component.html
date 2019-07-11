@@ -75,7 +75,7 @@
 
                         <ng-container matColumnDef="update">
                             <th mat-header-cell *matHeaderCellDef> Update </th>
-                            <td mat-cell *matCellDef="let row" ><button class="dugme" mat-flat-button (click)="openDialog()" routerLink="api/cisterna/id">Update</button>
+                            <td mat-cell *matCellDef="let row" ><button class="dugme" mat-flat-button (click)="openDialog(); prosledi(row.id)"  [routerLink]="'api/'+row.tipVozila+'/id'" >Update</button>
                             </td>
                         </ng-container>
                         

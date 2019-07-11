@@ -11,10 +11,18 @@ export class SharedService {
 
   private messageSource = new BehaviorSubject<boolean>(true);
 
+  private messageid = new BehaviorSubject<any>(0);
+
   currentMessage = this.messageSource.asObservable();
+
+  currentId = this.messageid.asObservable();
 
   changeMessage(message:boolean){
     this.messageSource.next(message)
+  }
+
+  changeId(id:number){
+    this.messageid.next(id);
   }
 
   
