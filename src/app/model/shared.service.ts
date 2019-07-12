@@ -13,7 +13,7 @@ export class SharedService {
 
   private messageSource = new BehaviorSubject<boolean>(true);
 
-  private messageid = new BehaviorSubject<Vrsta>(null);
+  private messageid = new BehaviorSubject<any>(null);
 
   currentMessage = this.messageSource.asObservable();
 
@@ -23,8 +23,8 @@ export class SharedService {
     this.messageSource.next(message)
   }
 
-  changeId(id:number,tipVozila:string){
-    this.messageid.next({id:id, tipVozila:tipVozila});
+  changeId(row){
+    this.messageid.next(row);
   }
 
   

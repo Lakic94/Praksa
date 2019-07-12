@@ -14,5 +14,7 @@ export class DialogComponent {
  
   onNoClick(): void {
     this.dialogRef.close();
+    window.location.replace("http://localhost:4200");
+
   }
 }

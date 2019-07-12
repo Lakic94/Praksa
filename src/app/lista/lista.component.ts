@@ -124,12 +124,15 @@ export class ListaComponent implements OnInit {
       }
     })
   }
+
+
   
 
-  prosledi(id:any,tipVozila:string){
+  prosledi(row){
 
-    this.sharedService.changeId(id,tipVozila);
-    console.log(id);
+    this.sharedService.changeId(row);
+
+    
 
   }
   

@@ -4,7 +4,7 @@
     <mat-form-field>
       <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"     
       [(ngModel)]="cisterna.naziv"
-        name="naziv">
+        name="naziv" required>
     </mat-form-field>
   </div>
 
@@ -30,21 +30,12 @@
         [(ngModel)]="cisterna.brojOsovina" name="brojOsovina">
     </mat-form-field>
   </div>
-  <div *ngIf="cisterna==null" fxLayout="row" fxLayoutAlign="end end">
-  <button mat-button (click)="dodaj()">Nova Cisterna</button>
+  <div fxLayout="row" fxLayoutAlign="start start">
+  <button mat-button [disabled]="!cisterna.naziv || !cisterna.boja" (click)="dodaj()">Submit</button>
 </div>
 
-<div *ngIf="cisterna!=null" fxLayout="row" fxLayoutAlign="end end">
-  <button mat-button (click)="izmeni()">Izmeni Cisterna</button>
+<div *ngIf="cisterna==null" fxLayout="row" fxLayoutAlign="start start">
+  <button mat-button (click)="izmeni()">Submit</button>
 </div>
-
-
-
-  
 
 </form>
-
-
-<div>
-  <button mat-button click="prikazi()">Prikazi</button>
-</div>
