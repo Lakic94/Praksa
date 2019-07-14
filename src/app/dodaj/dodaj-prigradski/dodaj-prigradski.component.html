@@ -1,1 +1,50 @@
-<p>dodaj-prigradski works!</p>
+
+<form>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"     
+        [(ngModel)]="prigradski.naziv"
+          name="naziv">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Boja" type="text" class="form-control" id="boja"
+         [(ngModel)]="prigradski.boja"
+          name="boja">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Broj Za Sedenje" class="form-control" id="brojZaSedenje"
+         [(ngModel)]="prigradski.brojZaSedenje"
+          name="brojZaSedenje">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Broj Za Stajanje" class="form-control" id="brojZaStajanje"
+           [(ngModel)]="prigradski.brojZaStajanje"
+            name="brojZaStajanje">
+        </mat-form-field>
+      </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Kapacitet " type="text" class="form-control" id="kapacitet"
+          [(ngModel)]="prigradski.kapacitet" name="kapacitet">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end">
+    <button mat-button (click)="dodaj()">Submit</button>
+  </div>
+  
+    
+  
+  </form>
+  
+  
+  

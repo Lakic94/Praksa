@@ -11,19 +11,19 @@ import { SharedService } from 'src/app/model/shared.service';
 export class DodajGradskiComponent implements OnInit {
 
   gradski = new Gradski(
-    '','',null,null,''
+    '', '', null, null, ''
   )
 
-  id:any;
-  
+  id: any;
 
-  constructor(private dodajService:DodajService, private sharedService:SharedService) { }
+
+  constructor(private dodajService: DodajService, private sharedService: SharedService) { }
 
 
   ngOnInit() {
     this.sharedService.currentId.subscribe(data=>{if(data.tipVozila==='Gradski'){
       this.id =data.id;
-      this.dodajService.getGradski(this.id).subscribe(data => this.gradski = data);
+      
     }});
   }
 
@@ -31,9 +31,7 @@ export class DodajGradskiComponent implements OnInit {
     this.dodajService.postGradski(this.gradski)
       .subscribe(data=> console.log("Uspesno", data),
                   error=>console.error("Error", error));
-    this.gradski = new Gradski(
-      '','',null,null,''
-    )
+    
 
   }
 

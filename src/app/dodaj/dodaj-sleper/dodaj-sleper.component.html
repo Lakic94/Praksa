@@ -1,1 +1,39 @@
-<p>dodaj-sleper works!</p>
+
+<form>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"     
+        [(ngModel)]="sleper.naziv"
+          name="naziv" required>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Boja" type="text" class="form-control" id="boja"
+         [(ngModel)]="sleper.boja"
+          name="boja">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Vucna Snaga" class="form-control" id="vucnaSnaga"
+         [(ngModel)]="sleper.vucnaSnaga"
+          name="vucnaSnaga">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="Broj Osovina" type="text" class="form-control" id="brojOsovina"
+          [(ngModel)]="sleper.brojOsovina" name="brojOsovina">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start start">
+    <button mat-button [disabled]="!sleper.naziv || !sleper.boja" (click)="dodaj()">Submit</button>
+  </div>
+  
+  
+  </form>
+  

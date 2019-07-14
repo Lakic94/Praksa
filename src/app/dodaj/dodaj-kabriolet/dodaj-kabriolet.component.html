@@ -1,1 +1,37 @@
-<p>dodaj-kabriolet works!</p>
+<form>
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"
+                [(ngModel)]="kabriolet.naziv" name="naziv" required>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Boja" type="text" class="form-control" id="boja" [(ngModel)]="kabriolet.boja"
+                name="boja">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Rasklopiv" class="form-control" id="rasklopiv"
+                [(ngModel)]="kabriolet.rasklopiv" name="rasklopiv">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Broj Sedista" type="text" class="form-control" id="brojSedista"
+                [(ngModel)]="kabriolet.brojSedista" name="brojSedista">
+        </mat-form-field>
+
+        <div class="form-group">
+            <mat-form-field>
+                <input matInput placeholder="Dodatna Oprema" type="text" class="form-control" id="dodatnaOprema"
+                    [(ngModel)]="kabriolet.dodatnaOprema" name="dodatnaOprema">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <button mat-button [disabled]="!kabriolet.naziv || !kabriolet.boja" (click)="dodaj()">Submit</button>
+        </div>
