@@ -4,7 +4,7 @@
       <mat-form-field>
         <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"     
         [(ngModel)]="prigradski.naziv"
-          name="naziv">
+          name="naziv" required>
       </mat-form-field>
     </div>
   
@@ -39,7 +39,7 @@
       </mat-form-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="start start">
-    <button mat-raised-button color="primary" (click)="dodaj()">Submit</button>
+    <button mat-raised-button color="primary" [disabled]="!prigradski.naziv" (click)="dodaj()">Submit</button>
   </div>
   
     

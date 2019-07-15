@@ -81,6 +81,7 @@ export class ListaComponent implements OnInit {
 
 }
 
+  
   //Ne dirati
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -32,7 +32,7 @@ import { DodajPrigradskiComponent } from './dodaj/dodaj-prigradski/dodaj-prigrad
 import { DodajGradskiComponent } from './dodaj/dodaj-gradski/dodaj-gradski.component';
 import { DodajKlasicanAutomobilComponent } from './dodaj/dodaj-klasican-automobil/dodaj-klasican-automobil.component';
 import { DodajKabrioletComponent } from './dodaj/dodaj-kabriolet/dodaj-kabriolet.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -71,6 +71,7 @@ import { DodajKabrioletComponent } from './dodaj/dodaj-kabriolet/dodaj-kabriolet
     CdkTableModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatIconModule,
     RouterModule.forRoot([])
   ],
   exports:[MatSortModule, MatPaginatorModule],
