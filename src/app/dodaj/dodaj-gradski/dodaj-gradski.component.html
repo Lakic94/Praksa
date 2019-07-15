@@ -38,8 +38,8 @@
           [(ngModel)]="gradski.zglobni" name="zglobni">
       </mat-form-field>
     </div>
-    <div fxLayout="row" fxLayoutAlign="end end">
-    <button mat-button (click)="dodaj()">Novi Gradski</button>
+    <div fxLayout="row" fxLayoutAlign="start start">
+    <button mat-raised-button color="primary" (click)="dodaj()">Submit</button>
   </div>
   
     
@@ -47,6 +47,4 @@
   </form>
   
   
-  <div>
-    <button mat-button click="prikazi()">Prikazi</button>
-  </div>
+  

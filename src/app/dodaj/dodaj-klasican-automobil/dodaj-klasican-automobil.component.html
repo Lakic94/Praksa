@@ -1,1 +1,37 @@
-<p>dodaj-klasican-automobil works!</p>
+<form>
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Naziv" type="text" class="form-control" id="naziv"
+                [(ngModel)]="klasican.naziv" name="naziv" required>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Boja" type="text" class="form-control" id="boja" [(ngModel)]="klasican.boja"
+                name="boja">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Nosivost" class="form-control" id="nosivost"
+                [(ngModel)]="klasican.nosivost" name="nosivost">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Broj Sedista" type="text" class="form-control" id="brojSedista"
+                [(ngModel)]="klasican.brojSedista" name="brojSedista">
+        </mat-form-field>
+
+        <div class="form-group">
+            <mat-form-field>
+                <input matInput placeholder="Dodatna Oprema" type="text" class="form-control" id="dodatnaOprema"
+                    [(ngModel)]="klasican.dodatnaOprema" name="dodatnaOprema">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <button mat-raised-button color="primary" [disabled]="!klasican.naziv || !klasican.boja" (click)="dodaj()">Submit</button>
+        </div>

@@ -8,8 +8,12 @@ import { DodajCisternaComponent } from '../dodaj/dodaj-cisterna/dodaj-cisterna.c
 import { DodajGradskiComponent } from '../dodaj/dodaj-gradski/dodaj-gradski.component';
 import { DodajKabrioletComponent } from '../dodaj/dodaj-kabriolet/dodaj-kabriolet.component';
 import { DodajSleperComponent } from '../dodaj/dodaj-sleper/dodaj-sleper.component';
+import { DodajKlasicanAutomobilComponent } from '../dodaj/dodaj-klasican-automobil/dodaj-klasican-automobil.component';
+import { DodajPrigradskiComponent } from '../dodaj/dodaj-prigradski/dodaj-prigradski.component';
 
 const routes = [
+  {path:'api/Klasicni/id', component:DodajKlasicanAutomobilComponent},
+  {path:'api/Prigradski/id', component:DodajPrigradskiComponent},
   {path:'api/Sleper/id', component:DodajSleperComponent},
   {path:'api/Kabriolet/id', component:DodajKabrioletComponent},
   {path: 'api/Cisterna/id', component: DodajCisternaComponent},

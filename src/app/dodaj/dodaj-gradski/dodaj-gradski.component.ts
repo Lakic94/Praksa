@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Gradski } from 'src/app/model/gradski.model';
 import { DodajService } from '../dodaj.service';
 import { SharedService } from 'src/app/model/shared.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-dodaj-gradski',
@@ -11,28 +12,35 @@ import { SharedService } from 'src/app/model/shared.service';
 export class DodajGradskiComponent implements OnInit {
 
   gradski = new Gradski(
-    '', '', null, null, ''
+    '','',null,null,''
   )
 
-  id: any;
+  id:any;
+  
 
-
-  constructor(private dodajService: DodajService, private sharedService: SharedService) { }
-
+  constructor(private dodajService:DodajService, private sharedService:SharedService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.sharedService.currentId.subscribe(data=>{if(data.tipVozila==='Gradski'){
-      this.id =data.id;
+    this.gradski = new Gradski(
+      '','',null,null,''
+    )
+    
+    this.sharedService.currentId.subscribe(data=>{if(data != null && data.tipVozila==='Gradski'){
+      this.gradski=data;
       
     }});
+
+    console.log(this.gradski)
+    
   }
+  
 
   dodaj(){
     this.dodajService.postGradski(this.gradski)
       .subscribe(data=> console.log("Uspesno", data),
                   error=>console.error("Error", error));
-    
-
+   
+    window.location.replace("http://localhost:4200");
   }
 
 }

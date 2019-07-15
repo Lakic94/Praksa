@@ -21,7 +21,7 @@ export class DodajComponent implements OnInit {
     { vrstaVozila: 'Kamion', name: 'Cisterna' },
     { vrstaVozila: 'Autobus', name: 'Prigradski' },
     { vrstaVozila: 'Autobus', name: 'Gradski' },
-    { vrstaVozila: 'Putnicki', name: 'KlasicanAutomobil' },
+    { vrstaVozila: 'Putnicki', name: 'Klasicni' },
     { vrstaVozila: 'Putnicki', name: 'Kabriolet' }
   ]
 

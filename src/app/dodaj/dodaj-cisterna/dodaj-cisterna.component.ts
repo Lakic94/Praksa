@@ -39,10 +39,7 @@ export class DodajCisternaComponent implements OnInit {
     this.dodajService.postCisterna(this.cisterna)
       .subscribe(data=> console.log("Uspesno", data),
                   error=>console.error("Error", error));
-    // this.cisterna = new Cisterna(
-    //   '','',null,null
-
-    // )
+    
     window.location.replace("http://localhost:4200");
   }
 

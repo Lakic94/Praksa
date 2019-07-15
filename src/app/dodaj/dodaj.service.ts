@@ -6,6 +6,7 @@ import { Gradski } from '../model/gradski.model';
 import { Kabriolet } from '../model/kabriolet.model';
 import { Sleper } from '../model/sleper';
 import { Prigradski } from '../model/prigradski';
+import { Klasican } from '../model/klasican';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,12 @@ export class DodajService {
 
   postPrigradski(data: Prigradski): Observable<Prigradski> {
     return this.http.post<Prigradski>('http://localhost:8585/api/prigradski', data)
+  }
+
+  //Klasican
+
+  postKlasican(data:Klasican):Observable<Klasican>{
+    return this.http.post<Klasican>('http://localhost:8585/api/Klasicni', data)
   }
 
 }

@@ -36,7 +36,7 @@ export class ListaComponent implements OnInit {
     { vrstaVozila: 'Kamion', name: 'Cisterna' },
     { vrstaVozila: 'Autobus', name: 'Prigradski' },
     { vrstaVozila: 'Autobus', name: 'Gradski' },
-    { vrstaVozila: 'Putnicki', name: 'KlasicanAutomobil' },
+    { vrstaVozila: 'Putnicki', name: 'Klasicni' },
     { vrstaVozila: 'Putnicki', name: 'Kabriolet' }
   ]
 
@@ -66,14 +66,20 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
 
     this.listaService.getVozila()
-      .subscribe(data => {this.dataSource = new MatTableDataSource(data), console.log(data)});
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+      .subscribe(data => this.dataSource = new MatTableDataSource(data));
+    
     this.dataSource = new MatTableDataSource(this.vozila);
+    
     this.sharedService.currentMessage.subscribe(message=>this.message = message)
     
     
   }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+}
 
   //Ne dirati
   applyFilter(filterValue: string) {

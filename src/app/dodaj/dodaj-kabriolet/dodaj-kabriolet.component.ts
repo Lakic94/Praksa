@@ -38,10 +38,7 @@ export class DodajKabrioletComponent implements OnInit {
     this.dodajService.postKabriolet(this.kabriolet)
       .subscribe(data=> console.log("Uspesno", data),
                   error=>console.error("Error", error));
-    // this.cisterna = new Cisterna(
-    //   '','',null,null
-
-    // )
+    
     window.location.replace("http://localhost:4200");
   }
 }
