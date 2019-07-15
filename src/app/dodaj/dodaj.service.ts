@@ -56,7 +56,7 @@ export class DodajService {
   //Klasican
 
   postKlasican(data:Klasican):Observable<Klasican>{
-    return this.http.post<Klasican>('http://localhost:8585/api/Klasicni', data)
+    return this.http.post<Klasican>('http://localhost:8585/api/klasicni', data)
   }
 
 }
