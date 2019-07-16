@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Cisterna } from 'src/app/model/cisterna.model';
 import { DodajService } from '../dodaj.service';
 import { SharedService } from 'src/app/model/shared.service';
@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material';
   templateUrl: './dodaj-cisterna.component.html',
   styleUrls: ['./dodaj-cisterna.component.css']
 })
-export class DodajCisternaComponent implements OnInit {
+export class DodajCisternaComponent implements OnInit, OnDestroy {
 
   cisterna = new Cisterna(
     '','',null,null
@@ -43,7 +43,11 @@ export class DodajCisternaComponent implements OnInit {
     window.location.replace("http://localhost:4200");
   }
 
-  
+  ngOnDestroy(): void {
+    this.cisterna = new Cisterna(
+      '','',null,null
+    );
+  }
 
   
 

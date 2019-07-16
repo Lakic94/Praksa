@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -14,7 +14,6 @@ export class DialogComponent {
  
   onNoClick(): void {
     this.dialogRef.close();
-    window.location.replace("http://localhost:4200");
 
   }
 }

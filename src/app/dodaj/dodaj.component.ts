@@ -13,7 +13,7 @@ export class DodajComponent implements OnInit {
     { name: 'Kamion' },
     { name: 'Autobus' },
     { name: 'Putnicki' }
-    
+
   ]
 
   public tipVozila = [
@@ -27,20 +27,20 @@ export class DodajComponent implements OnInit {
 
   public listaTipova = [];
 
-  
 
-  unos:string = '';
+
+  unos: string = '';
 
   ngOnInit() {
   }
-  
-  getVrstaVozila(event:any){
+
+  getVrstaVozila(event: any) {
     this.listaTipova = this.tipVozila.filter(p => p.vrstaVozila === event);
   }
 
-  print(event:any){
-    
-    this.unos=event;
-    
+  print(event: any) {
+
+    this.unos = event;
+
   }
 }

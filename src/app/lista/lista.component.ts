@@ -109,11 +109,9 @@ export class ListaComponent implements OnInit {
 
 
   delete(id:number,tip:string){
-    this.listaService.deleteVozilo(id,tip).subscribe();
-    setTimeout(() => {
+    this.listaService.deleteVozilo(id,tip).subscribe(() => {
       this.loadData();
-    }, 200);
-    
+    });
   }
 
   loadData(){
